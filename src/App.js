@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route
+} from 'react-router-dom';
 
-function App() {
-  return (
+function App() {                                         
+  return(
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <LandingPage />
+    
+    <Link to="/planner"><button className="routeButton">Let's get started!</button></Link>
+
+
+    <Switch>
+      <Route path="/planner">
+        <MainPage />
+      </Route>
+    </Switch>
+
     </div>
+    </Router>
   );
 }
 
 export default App;
+
+function LandingPage(){
+  return (
+    <p className ="landingText"> 
+      Make your college course plan... <br/><br/>
+      Track your progress...<br/><br/>
+      Save multiple tracks for consideration...<br/><br/>
+      Easily export to downloadable document...<br/><br/>
+    </p>
+  );
+}
+function MainPage(){
+  return (
+      <h1> hello world</h1>
+  );
+}
